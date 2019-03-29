@@ -4,17 +4,27 @@
 
 
 			<!-- start: Content -->
-			<div id="content" class="span10">
 
 
-			<ul class="breadcrumb">
-				<li>
-					<i class="icon-home"></i>
-					<a href="index.html">Home</a>
-					<i class="icon-angle-right"></i>
-				</li>
-				<li><a href="#">Dashboard</a></li>
-			</ul>
+
+                    <ul class="breadcrumb">
+                        <li>
+                            <i class="icon-home"></i>
+                            <a href="index.html">Home</a>
+                            <i class="icon-angle-right"></i>
+                        </li>
+                        <li><a href="#">Dashboard</a></li>
+                    </ul>
+                @if (session('successMsg'))
+                <div class="alert alert-success" role="alert">
+                        <strong>Well done! </strong>{{session('successMsg')}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                @endif
+
+
 
 			<div class="row-fluid">
 
@@ -647,7 +657,7 @@
 	</div><!--/.fluid-container-->
 
 			<!-- end: Content -->
-		</div><!--/#content.span10-->
+		<!--</div> /#content.span10-->
 		</div><!--/fluid-row-->
 
 	<div class="modal hide fade" id="myModal">

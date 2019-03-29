@@ -57,13 +57,42 @@
 						<a href="index.html"><i class="halflings-icon home"></i></a>
 						<a href="#"><i class="halflings-icon cog"></i></a>
 					</div>
+
+                @if ($errors->any())
+                    @foreach($errors->all() as $error)
+                        <div class="alert alert-danger" role="alert">
+                            <strong>Oh Snap! </strong>{{$error}}
+                            <button type="button" class="close" data-dismiss="alert"                  aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endforeach
+                @endif
+
+                @if (session('Msg'))
+                     <div class="alert alert-danger" role="alert">
+                        <strong>Very Bad! </strong>{{session('Msg')}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @else (session('successMsg'))
+                        <div class="alert alert-success" role="alert">
+                            <strong>well Done! </strong>{{session('successMsg')}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                @endif
 					<h2>Login to your account</h2>
-					<form class="form-horizontal" action="" method="post">
+					<form class="form-horizontal" action="{{route('admin.login.home')}}" method="post">
+                        {{ csrf_field() }}
 						<fieldset>
 
 							<div class="input-prepend" title="email">
 								<span class="add-on"><i class="halflings-icon user"></i></span>
-								<input class="input-large span10" name="admin_email" id="admin_email" type="email" placeholder="type username"/>
+								<input class="input-large span10" name="admin_email" id="admin_email" type="email" placeholder="type email"/>
 							</div>
 							<div class="clearfix"></div>
 

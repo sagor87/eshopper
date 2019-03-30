@@ -1,3 +1,4 @@
+
 </div>
 <div class="clearfix"></div>
 
@@ -65,8 +66,20 @@
 
 		<script src="{{asset('admin/js/retina.js')}}"></script>
 
-		<script src="{{asset('admin/js/custom.js')}}"></script>
+        <script src="{{asset('admin/js/custom.js')}}"></script>
+        <script type="text/javascript" src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js')}}"></script>
 	<!-- end: JavaScript-->
+    <script>
+            $(document).on("click", "#delete", function(e) {
+                e.preventDefault();
+                var link = $(this).attr('href');
+                bootbox.confirm("Are you want to delete!", function(confirmed) {
+                    if(confirmed){
+                        window.location.href = link;
+                    };
+                });
+            });
+    </script>
 
 </body>
 

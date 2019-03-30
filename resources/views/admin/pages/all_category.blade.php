@@ -11,6 +11,15 @@
                     <li><a href="#">All Category</a></li>
                 </ul>
 
+                @if (session('successMsg'))
+                <div class="alert alert-success" role="alert">
+                        <strong>Well done! </strong>{{session('successMsg')}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                @endif
+
                 <div class="row-fluid sortable">
                     <div class="box span12">
                         <div class="box-header" data-original-title>
@@ -25,643 +34,52 @@
                             <table class="table table-striped table-bordered bootstrap-datatable datatable">
                               <thead>
                                   <tr>
-                                      <th>Username</th>
-                                      <th>Date registered</th>
-                                      <th>Role</th>
+                                      <th>Category ID</th>
+                                      <th>Category Name</th>
+                                      <th>Category Description</th>
                                       <th>Status</th>
                                       <th>Actions</th>
                                   </tr>
                               </thead>
+                            @foreach($categorys as $category)
                               <tbody>
                                 <tr>
-                                    <td>Anton Phunihel</td>
-                                    <td class="center">2012/01/01</td>
-                                    <td class="center">Member</td>
-                                    <td class="center">
-                                        <span class="label label-success">Active</span>
-                                    </td>
-                                    <td class="center">
-                                        <a class="btn btn-success" href="#">
-                                            <i class="halflings-icon white zoom-in"></i>
-                                        </a>
-                                        <a class="btn btn-info" href="#">
-                                            <i class="halflings-icon white edit"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="#">
-                                            <i class="halflings-icon white trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Alphonse Ivo</td>
-                                    <td class="center">2012/01/01</td>
-                                    <td class="center">Member</td>
-                                    <td class="center">
-                                        <span class="label label-success">Active</span>
-                                    </td>
-                                    <td class="center">
-                                        <a class="btn btn-success" href="#">
-                                            <i class="halflings-icon white zoom-in"></i>
-                                        </a>
-                                        <a class="btn btn-info" href="#">
-                                            <i class="halflings-icon white edit"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="#">
-                                            <i class="halflings-icon white trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Thancmar Theophanes</td>
-                                    <td class="center">2012/01/01</td>
-                                    <td class="center">Member</td>
-                                    <td class="center">
-                                        <span class="label label-success">Active</span>
-                                    </td>
-                                    <td class="center">
-                                        <a class="btn btn-success" href="#">
-                                            <i class="halflings-icon white zoom-in"></i>
-                                        </a>
-                                        <a class="btn btn-info" href="#">
-                                            <i class="halflings-icon white edit"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="#">
-                                            <i class="halflings-icon white trash"></i>
-                                        </a>
-                                    </td>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Walerian Khwaja</td>
-                                    <td class="center">2012/01/01</td>
-                                    <td class="center">Member</td>
-                                    <td class="center">
-                                        <span class="label label-success">Active</span>
-                                    </td>
-                                    <td class="center">
-                                        <a class="btn btn-success" href="#">
-                                            <i class="halflings-icon white zoom-in"></i>
-                                        </a>
-                                        <a class="btn btn-info" href="#">
-                                            <i class="halflings-icon white edit"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="#">
-                                            <i class="halflings-icon white trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Clemens Janko</td>
-                                    <td class="center">2012/02/01</td>
-                                    <td class="center">Staff</td>
-                                    <td class="center">
-                                        <span class="label label-important">Banned</span>
-                                    </td>
-                                    <td class="center">
-                                        <a class="btn btn-success" href="#">
-                                            <i class="halflings-icon white zoom-in"></i>
-                                        </a>
-                                        <a class="btn btn-info" href="#">
-                                            <i class="halflings-icon white edit"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="#">
-                                            <i class="halflings-icon white trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Chidubem Gottlob</td>
-                                    <td class="center">2012/02/01</td>
-                                    <td class="center">Staff</td>
-                                    <td class="center">
-                                        <span class="label label-important">Banned</span>
-                                    </td>
-                                    <td class="center">
-                                        <a class="btn btn-success" href="#">
-                                            <i class="halflings-icon white zoom-in"></i>
-                                        </a>
-                                        <a class="btn btn-info" href="#">
-                                            <i class="halflings-icon white edit"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="#">
-                                            <i class="halflings-icon white trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Hristofor Sergio</td>
-                                    <td class="center">2012/03/01</td>
-                                    <td class="center">Member</td>
-                                    <td class="center">
-                                        <span class="label label-warning">Pending</span>
-                                    </td>
-                                    <td class="center">
-                                        <a class="btn btn-success" href="#">
-                                            <i class="halflings-icon white zoom-in"></i>
-                                        </a>
-                                        <a class="btn btn-info" href="#">
-                                            <i class="halflings-icon white edit"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="#">
-                                            <i class="halflings-icon white trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Tadhg Griogair</td>
-                                    <td class="center">2012/03/01</td>
-                                    <td class="center">Member</td>
-                                    <td class="center">
-                                        <span class="label label-warning">Pending</span>
-                                    </td>
-                                    <td class="center">
-                                        <a class="btn btn-success" href="#">
-                                            <i class="halflings-icon white zoom-in"></i>
-                                        </a>
-                                        <a class="btn btn-info" href="#">
-                                            <i class="halflings-icon white edit"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="#">
-                                            <i class="halflings-icon white trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Pollux Beaumont</td>
-                                    <td class="center">2012/01/21</td>
-                                    <td class="center">Staff</td>
-                                    <td class="center">
-                                        <span class="label label-success">Active</span>
-                                    </td>
-                                    <td class="center">
-                                        <a class="btn btn-success" href="#">
-                                            <i class="halflings-icon white zoom-in"></i>
-                                        </a>
-                                        <a class="btn btn-info" href="#">
-                                            <i class="halflings-icon white edit"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="#">
-                                            <i class="halflings-icon white trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Adam Alister</td>
-                                    <td class="center">2012/01/21</td>
-                                    <td class="center">Staff</td>
-                                    <td class="center">
-                                        <span class="label label-success">Active</span>
-                                    </td>
-                                    <td class="center">
-                                        <a class="btn btn-success" href="#">
-                                            <i class="halflings-icon white zoom-in"></i>
-                                        </a>
-                                        <a class="btn btn-info" href="#">
-                                            <i class="halflings-icon white edit"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="#">
-                                            <i class="halflings-icon white trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Carlito Roffe</td>
-                                    <td class="center">2012/08/23</td>
-                                    <td class="center">Staff</td>
-                                    <td class="center">
-                                        <span class="label label-important">Banned</span>
-                                    </td>
-                                    <td class="center">
-                                        <a class="btn btn-success" href="#">
-                                            <i class="halflings-icon white zoom-in"></i>
-                                        </a>
-                                        <a class="btn btn-info" href="#">
-                                            <i class="halflings-icon white edit"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="#">
-                                            <i class="halflings-icon white trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Sana Amrin</td>
-                                    <td class="center">2012/08/23</td>
-                                    <td class="center">Staff</td>
-                                    <td class="center">
-                                        <span class="label label-important">Banned</span>
-                                    </td>
-                                    <td class="center">
-                                        <a class="btn btn-success" href="#">
-                                            <i class="halflings-icon white zoom-in"></i>
-                                        </a>
-                                        <a class="btn btn-info" href="#">
-                                            <i class="halflings-icon white edit"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="#">
-                                            <i class="halflings-icon white trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Adinah Ralph</td>
-                                    <td class="center">2012/06/01</td>
-                                    <td class="center">Admin</td>
-                                    <td class="center">
-                                        <span class="label">Inactive</span>
-                                    </td>
-                                    <td class="center">
-                                        <a class="btn btn-success" href="#">
-                                            <i class="halflings-icon white zoom-in"></i>
-                                        </a>
-                                        <a class="btn btn-info" href="#">
-                                            <i class="halflings-icon white edit"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="#">
-                                            <i class="halflings-icon white trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Dederick Mihail</td>
-                                    <td class="center">2012/06/01</td>
-                                    <td class="center">Admin</td>
-                                    <td class="center">
-                                        <span class="label">Inactive</span>
-                                    </td>
-                                    <td class="center">
-                                        <a class="btn btn-success" href="#">
-                                            <i class="halflings-icon white zoom-in"></i>
-                                        </a>
-                                        <a class="btn btn-info" href="#">
-                                            <i class="halflings-icon white edit"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="#">
-                                            <i class="halflings-icon white trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Hipólito András</td>
-                                    <td class="center">2012/03/01</td>
-                                    <td class="center">Member</td>
-                                    <td class="center">
-                                        <span class="label label-warning">Pending</span>
-                                    </td>
-                                    <td class="center">
-                                        <a class="btn btn-success" href="#">
-                                            <i class="halflings-icon white zoom-in"></i>
-                                        </a>
-                                        <a class="btn btn-info" href="#">
-                                            <i class="halflings-icon white edit"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="#">
-                                            <i class="halflings-icon white trash"></i>
+                                <td>{{$category->category_id}}</td>
+                                <td class="center">{{$category->category_name}}</td>
+                                <td class="center">{{$category->category_description}}</td>
 
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Fricis Arieh</td>
-                                    <td class="center">2012/03/01</td>
-                                    <td class="center">Member</td>
                                     <td class="center">
-                                        <span class="label label-warning">Pending</span>
+                                        @if($category->publication_status==1)
+                                            <span class="label label-success">Active</span>
+                                        @else
+                                            <span class="label label-danger">Inactive</span>
+                                        @endif
                                     </td>
                                     <td class="center">
-                                        <a class="btn btn-success" href="#">
-                                            <i class="halflings-icon white zoom-in"></i>
+
+                                    @if($category->publication_status==1)
+                                    <a class="btn btn-danger" href="{{route('inactive_category',$category->category_id)}}">
+                                            <i class="halflings-icon white thumbs-down"></i>
                                         </a>
-                                        <a class="btn btn-info" href="#">
+                                    @else
+                                        <a class="btn btn-success" href="{{route('active_category',$category->category_id)}}">
+                                            <i class="halflings-icon white thumbs-up"></i>
+                                        </a>
+                                    @endif
+
+                                        <a class="btn btn-info" href="{{route('edit_category',$category->category_id)}}">
                                             <i class="halflings-icon white edit"></i>
                                         </a>
-                                        <a class="btn btn-danger" href="#">
+                                        <a class="btn btn-danger" href="{{route('delete_category',$category->category_id)}}" id="delete">
                                             <i class="halflings-icon white trash"></i>
-
                                         </a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>Scottie Maximilian</td>
-                                    <td class="center">2012/03/01</td>
-                                    <td class="center">Member</td>
-                                    <td class="center">
-                                        <span class="label label-warning">Pending</span>
-                                    </td>
-                                    <td class="center">
-                                        <a class="btn btn-success" href="#">
-                                            <i class="halflings-icon white zoom-in"></i>
-                                        </a>
-                                        <a class="btn btn-info" href="#">
-                                            <i class="halflings-icon white edit"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="#">
-                                            <i class="halflings-icon white trash"></i>
 
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Bao Gaspar</td>
-                                    <td class="center">2012/01/01</td>
-                                    <td class="center">Member</td>
-                                    <td class="center">
-                                        <span class="label label-success">Active</span>
-                                    </td>
-                                    <td class="center">
-                                        <a class="btn btn-success" href="#">
-                                            <i class="halflings-icon white zoom-in"></i>
-                                        </a>
-                                        <a class="btn btn-info" href="#">
-                                            <i class="halflings-icon white edit"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="#">
-                                            <i class="halflings-icon white trash"></i>
-
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Tullio Luka</td>
-                                    <td class="center">2012/02/01</td>
-                                    <td class="center">Staff</td>
-                                    <td class="center">
-                                        <span class="label label-important">Banned</span>
-                                    </td>
-                                    <td class="center">
-                                        <a class="btn btn-success" href="#">
-                                            <i class="halflings-icon white zoom-in"></i>
-                                        </a>
-                                        <a class="btn btn-info" href="#">
-                                            <i class="halflings-icon white edit"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="#">
-                                            <i class="halflings-icon white trash"></i>
-
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Felice Arseniy</td>
-                                    <td class="center">2012/02/01</td>
-                                    <td class="center">Admin</td>
-                                    <td class="center">
-                                        <span class="label">Inactive</span>
-                                    </td>
-                                    <td class="center">
-                                        <a class="btn btn-success" href="#">
-                                            <i class="halflings-icon white zoom-in"></i>
-                                        </a>
-                                        <a class="btn btn-info" href="#">
-                                            <i class="halflings-icon white edit"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="#">
-                                            <i class="halflings-icon white trash"></i>
-
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Finlay Alf</td>
-                                    <td class="center">2012/02/01</td>
-                                    <td class="center">Admin</td>
-                                    <td class="center">
-                                        <span class="label">Inactive</span>
-                                    </td>
-                                    <td class="center">
-                                        <a class="btn btn-success" href="#">
-                                            <i class="halflings-icon white zoom-in"></i>
-                                        </a>
-                                        <a class="btn btn-info" href="#">
-                                            <i class="halflings-icon white edit"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="#">
-                                            <i class="halflings-icon white trash"></i>
-
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Theophilus Nala</td>
-                                    <td class="center">2012/03/01</td>
-                                    <td class="center">Member</td>
-                                    <td class="center">
-                                        <span class="label label-warning">Pending</span>
-                                    </td>
-                                    <td class="center">
-                                        <a class="btn btn-success" href="#">
-                                            <i class="halflings-icon white zoom-in"></i>
-                                        </a>
-                                        <a class="btn btn-info" href="#">
-                                            <i class="halflings-icon white edit"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="#">
-                                            <i class="halflings-icon white trash"></i>
-
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Sullivan Robert</td>
-                                    <td class="center">2012/03/01</td>
-                                    <td class="center">Member</td>
-                                    <td class="center">
-                                        <span class="label label-warning">Pending</span>
-                                    </td>
-                                    <td class="center">
-                                        <a class="btn btn-success" href="#">
-                                            <i class="halflings-icon white zoom-in"></i>
-                                        </a>
-                                        <a class="btn btn-info" href="#">
-                                            <i class="halflings-icon white edit"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="#">
-                                            <i class="halflings-icon white trash"></i>
-
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Kristóf Filiberto</td>
-                                    <td class="center">2012/01/21</td>
-                                    <td class="center">Staff</td>
-                                    <td class="center">
-                                        <span class="label label-success">Active</span>
-                                    </td>
-                                    <td class="center">
-                                        <a class="btn btn-success" href="#">
-                                            <i class="halflings-icon white zoom-in"></i>
-                                        </a>
-                                        <a class="btn btn-info" href="#">
-                                            <i class="halflings-icon white edit"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="#">
-                                            <i class="halflings-icon white trash"></i>
-
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Kuzma Edvard</td>
-                                    <td class="center">2012/01/21</td>
-                                    <td class="center">Staff</td>
-                                    <td class="center">
-                                        <span class="label label-success">Active</span>
-                                    </td>
-                                    <td class="center">
-                                        <a class="btn btn-success" href="#">
-                                            <i class="halflings-icon white zoom-in"></i>
-                                        </a>
-                                        <a class="btn btn-info" href="#">
-                                            <i class="halflings-icon white edit"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="#">
-                                            <i class="halflings-icon white trash"></i>
-
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Bünyamin Kasper</td>
-                                    <td class="center">2012/08/23</td>
-                                    <td class="center">Staff</td>
-                                    <td class="center">
-                                        <span class="label label-important">Banned</span>
-                                    </td>
-                                    <td class="center">
-                                        <a class="btn btn-success" href="#">
-                                            <i class="halflings-icon white zoom-in"></i>
-                                        </a>
-                                        <a class="btn btn-info" href="#">
-                                            <i class="halflings-icon white edit"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="#">
-                                            <i class="halflings-icon white trash"></i>
-
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Crofton Arran</td>
-                                    <td class="center">2012/08/23</td>
-                                    <td class="center">Staff</td>
-                                    <td class="center">
-                                        <span class="label label-important">Banned</span>
-                                    </td>
-                                    <td class="center">
-                                        <a class="btn btn-success" href="#">
-                                            <i class="halflings-icon white zoom-in"></i>
-                                        </a>
-                                        <a class="btn btn-info" href="#">
-                                            <i class="halflings-icon white edit"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="#">
-                                            <i class="halflings-icon white trash"></i>
-
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Bernhard Shelah</td>
-                                    <td class="center">2012/06/01</td>
-                                    <td class="center">Admin</td>
-                                    <td class="center">
-                                        <span class="label">Inactive</span>
-                                    </td>
-                                    <td class="center">
-                                        <a class="btn btn-success" href="#">
-                                            <i class="halflings-icon white zoom-in"></i>
-                                        </a>
-                                        <a class="btn btn-info" href="#">
-                                            <i class="halflings-icon white edit"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="#">
-                                            <i class="halflings-icon white trash"></i>
-
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Grahame Miodrag</td>
-                                    <td class="center">2012/03/01</td>
-                                    <td class="center">Member</td>
-                                    <td class="center">
-                                        <span class="label label-warning">Pending</span>
-                                    </td>
-                                    <td class="center">
-                                        <a class="btn btn-success" href="#">
-                                            <i class="halflings-icon white zoom-in"></i>
-                                        </a>
-                                        <a class="btn btn-info" href="#">
-                                            <i class="halflings-icon white edit"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="#">
-                                            <i class="halflings-icon white trash"></i>
-
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Innokentiy Celio</td>
-                                    <td class="center">2012/03/01</td>
-                                    <td class="center">Member</td>
-                                    <td class="center">
-                                        <span class="label label-warning">Pending</span>
-                                    </td>
-                                    <td class="center">
-                                        <a class="btn btn-success" href="#">
-                                            <i class="halflings-icon white zoom-in"></i>
-                                        </a>
-                                        <a class="btn btn-info" href="#">
-                                            <i class="halflings-icon white edit"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="#">
-                                            <i class="halflings-icon white trash"></i>
-
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Kostandin Warinhari</td>
-                                    <td class="center">2012/03/01</td>
-                                    <td class="center">Member</td>
-                                    <td class="center">
-                                        <span class="label label-warning">Pending</span>
-                                    </td>
-                                    <td class="center">
-                                        <a class="btn btn-success" href="#">
-                                            <i class="halflings-icon white zoom-in"></i>
-                                        </a>
-                                        <a class="btn btn-info" href="#">
-                                            <i class="halflings-icon white edit"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="#">
-                                            <i class="halflings-icon white trash"></i>
-
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Ajith Hristijan</td>
-                                    <td class="center">2012/03/01</td>
-                                    <td class="center">Member</td>
-                                    <td class="center">
-                                        <span class="label label-warning">Pending</span>
-                                    </td>
-                                    <td class="center">
-                                        <a class="btn btn-success" href="#">
-                                            <i class="halflings-icon white zoom-in"></i>
-                                        </a>
-                                        <a class="btn btn-info" href="#">
-                                            <i class="halflings-icon white edit"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="#">
-                                            <i class="halflings-icon white trash"></i>
-
-                                        </a>
-                                    </td>
-                                </tr>
                               </tbody>
+                        @endforeach
                           </table>
+
                         </div>
                     </div><!--/span-->
 

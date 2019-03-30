@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
-
+use DB;
 class CategoryController extends Controller
 {
     /**
@@ -19,7 +19,8 @@ class CategoryController extends Controller
     }
     public function all_category()
     {
-        return view('admin.pages.all_category');
+        $categorys = Category::get();
+        return view('admin.pages.all_category',compact('categorys'));
 
     }
 
@@ -41,7 +42,39 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'category_name' => 'required',
+            'category_description' => 'required'
+        ]);
+
+        $category = new Category;
+        $category->category_name = $request->category_name;
+        $category->category_description = $request->category_description;
+        $category->publication_status = $request->publication_status;
+
+
+        $category->save();
+
+        return redirect(route('all.category'))->with('successMsg', 'Category successfully Added');
+    }
+
+    public function inactive_category($category_id)
+    {
+        DB::table('categories')
+        ->where('category_id',$category_id)
+        ->update(['publication_status'=>0]);
+
+        return redirect(route('all.category'))->with('successMsg', 'Category successfully Inactive');
+
+    }
+    public function active_category($category_id)
+    {
+        DB::table('categories')
+        ->where('category_id',$category_id)
+        ->update(['publication_status'=>1]);
+
+        return redirect(route('all.category'))->with('successMsg', 'Category successfully active');
+
     }
 
     /**
@@ -61,9 +94,13 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit_category($category_id)
     {
-        //
+     $categorys= DB::table('categories')
+        ->where('category_id',$category_id)
+        ->first();
+
+        return view('admin.pages.edit_category',compact('categorys'));
     }
 
     /**
@@ -73,9 +110,30 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update_category(Request $request, Category $category_id)
     {
-        //
+        $this->validate($request,[
+            'category_name' => 'required',
+            'category_description' => 'required'
+        ]);
+
+        $category = array();
+        $category['category_name'] = $request->category_name;
+        $category['category_description'] = $request->category_description;
+
+        DB::table('categories')
+        ->where('category_id',$category_id)
+        ->update($category);
+
+        return redirect(route('all.category'))->with('successMsg', 'Category successfully update');
+    }
+
+    public function delete_category($category_id){
+
+        DB::table('categories')
+        ->where('category_id',$category_id)
+        ->delete();
+        return redirect(route('all.category'))->with('successMsg', 'Category successfully Deleted');
     }
 
     /**

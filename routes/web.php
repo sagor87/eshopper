@@ -25,5 +25,11 @@ Route::get('/backend/index', 'AdminPagesController@index')->name('admin.home');
 //Category related Route------------------------------------------------------
 Route::get('/backend/add-category', 'CategoryController@index')->name('add.category');
 Route::get('/backend/all-category', 'CategoryController@all_category')->name('all.category');
+Route::post('/backend/add-category', 'CategoryController@store')->name('store.category');
+Route::get('/backend/inactive-category/{category_id}', 'CategoryController@inactive_category')->name('inactive_category');
+Route::get('/backend/active-category/{category_id}', 'CategoryController@active_category')->name('active_category');
+Route::get('/backend/edit-category/{category_id}', 'CategoryController@edit_category')->name('edit_category');
+Route::post('/backend/update-category/{category_id}', 'CategoryController@update_category')->name('update_category');
+Route::get('/backend/delete-category/{category_id}', 'CategoryController@delete_category')->name('delete_category');
 
 

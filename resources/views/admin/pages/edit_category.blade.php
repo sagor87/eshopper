@@ -10,14 +10,14 @@
         </li>
         <li>
             <i class="icon-edit"></i>
-            <a href="#">Add Category</a>
+            <a href="#">Edit Category</a>
         </li>
     </ul>
 
     <div class="row-fluid sortable">
         <div class="box span12">
             <div class="box-header" data-original-title>
-                <h2><i class="halflings-icon edit"></i><span class="break"></span>Add Category</h2>
+                <h2><i class="halflings-icon edit"></i><span class="break"></span>Edit Category</h2>
 
                 <div class="box-icon">
                     <a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
@@ -38,13 +38,13 @@
         @endif
 
             <div class="box-content">
-            <form class="form-horizontal" action="{{route('store.category')}}" method="POST">
+            <form class="form-horizontal" action="{{route('update_category',$categorys->category_id)}}" method="POST">
                     {{ csrf_field() }}
                   <fieldset>
                     <div class="control-group">
                       <label class="control-label" for="typeahead">Category Name </label>
                       <div class="controls">
-                        <input type="text" class="span6 typeahead" name="category_name">
+                      <input type="text" class="span6 typeahead" name="category_name" value="{{$categorys->category_name}}">
                       </div>
                     </div>
 
@@ -52,20 +52,14 @@
                     <div class="control-group hidden-phone">
                       <label class="control-label" for="textarea2">Category Description</label>
                       <div class="controls">
-                        <textarea class="cleditor" name="category_description" rows="3"></textarea>
+                        <textarea class="cleditor" name="category_description" rows="3" >
+                                {{$categorys->category_description}}
+                        </textarea>
                       </div>
                     </div>
 
-                    <div class="control-group hidden-phone">
-                         <label class="control-label" for="">Publication status</label>
-                        <div class="controls">
-                            <label class="checkbox inline">
-                                <input type ="checkbox" name="publication_status" value="1">Check for publish
-                            </label>
-                        </div>
-                    </div>
                     <div class="form-actions">
-                      <button type="submit" class="btn btn-primary">Add Category</button>
+                      <button type="submit" class="btn btn-primary">Update Category</button>
                       <button type="reset" class="btn">Cancel</button>
                     </div>
                   </fieldset>

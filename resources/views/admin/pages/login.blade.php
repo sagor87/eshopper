@@ -76,14 +76,14 @@
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                @else (session('successMsg'))
+                @endif
+                @if (session('successMsg'))
                         <div class="alert alert-success" role="alert">
                             <strong>well Done! </strong>{{session('successMsg')}}
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-
                 @endif
 					<h2>Login to your account</h2>
 					<form class="form-horizontal" action="{{route('admin.login.home')}}" method="post">

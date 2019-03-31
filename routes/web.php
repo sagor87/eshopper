@@ -33,3 +33,15 @@ Route::post('/backend/update-category/{category_id}', 'CategoryController@update
 Route::get('/backend/delete-category/{category_id}', 'CategoryController@delete_category')->name('delete_category');
 
 
+
+
+//Brand related Route------------------------------------------------------
+
+Route::get('/backend/add-brand', 'BrandController@index')->name('add.brand');
+Route::get('/backend/all-brand', 'BrandController@all_brand')->name('all.brand');
+Route::post('/backend/add-brand', 'BrandController@store')->name('store.brand');
+Route::get('/backend/inactive-brand/{brand_id}', 'BrandController@inactive_brand')->name('inactive_brand');
+Route::get('/backend/active-brand/{brand_id}', 'BrandController@active_brand')->name('active_brand');
+Route::get('/backend/edit-brand/{brand_id}', 'BrandController@edit_brand')->name('edit_brand');
+Route::post('/backend/update-brand/{brand_id}', 'BrandController@update_brand')->name('update_brand');
+Route::get('/backend/delete-brand/{brand_id}', 'BrandController@delete_brand')->name('delete_brand');

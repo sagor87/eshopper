@@ -9,8 +9,8 @@
                     <li><a href="{{route('all.category')}}"><i class="icon-envelope"></i><span class="hidden-tablet"> All Category</span></a></li>
                     <li><a href="{{route('add.category')}}"><i class="icon-tasks"></i><span class="hidden-tablet"> Add Category </span></a></li>
 
-                    <li><a href="ui.html"><i class="icon-eye-open"></i><span class="hidden-tablet"> All Brand</span></a></li>
-                    <li><a href="widgets.html"><i class="icon-dashboard"></i><span class="hidden-tablet"> Add Brand</span></a></li>
+                    <li><a href="{{route('all.brand')}}"><i class="icon-eye-open"></i><span class="hidden-tablet"> All Brand</span></a></li>
+                    <li><a href="{{route('add.brand')}}"><i class="icon-dashboard"></i><span class="hidden-tablet"> Add Brand</span></a></li>
                     <li>
                         <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Product</span><span class="label label-important"> New </span></a>
                         <ul>

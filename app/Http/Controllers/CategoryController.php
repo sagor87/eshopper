@@ -96,11 +96,12 @@ class CategoryController extends Controller
      */
     public function edit_category($category_id)
     {
+
      $categorys= DB::table('categories')
         ->where('category_id',$category_id)
         ->first();
 
-        return view('admin.pages.edit_category',compact('categorys'));
+        return view('admin.pages.edit_category',compact('categorys','$category_id'));
     }
 
     /**
@@ -110,22 +111,24 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update_category(Request $request, Category $category_id)
+    public function update_category(Request $request ,$category_id)
     {
         $this->validate($request,[
-            'category_name' => 'required',
-            'category_description' => 'required'
+            'category_name'=>'required',
+            'category_description'=>'required'
         ]);
 
+
         $category = array();
-        $category['category_name'] = $request->category_name;
-        $category['category_description'] = $request->category_description;
+        $category['category_name']=$request->category_name;
+        $category['category_description']=$request->category_description;
 
         DB::table('categories')
         ->where('category_id',$category_id)
         ->update($category);
 
         return redirect(route('all.category'))->with('successMsg', 'Category successfully update');
+
     }
 
     public function delete_category($category_id){

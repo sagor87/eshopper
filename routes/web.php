@@ -45,3 +45,15 @@ Route::get('/backend/active-brand/{brand_id}', 'BrandController@active_brand')->
 Route::get('/backend/edit-brand/{brand_id}', 'BrandController@edit_brand')->name('edit_brand');
 Route::post('/backend/update-brand/{brand_id}', 'BrandController@update_brand')->name('update_brand');
 Route::get('/backend/delete-brand/{brand_id}', 'BrandController@delete_brand')->name('delete_brand');
+
+
+//Product related Route---------------------------------------------------------
+Route::get('/backend/add-product', 'ProductController@index')->name('add.product');
+Route::post('/backend/add-product', 'ProductController@store')->name('add.product');
+Route::get('/backend/all-product', 'ProductController@all_product')->name('all.product');
+Route::get('/backend/inactive-product/{product_id}', 'ProductController@inactive_product')->name('inactive_product');
+Route::get('/backend/active-product/{product_id}', 'ProductController@active_product')->name('active_product');
+
+Route::get('/backend/edit-product/{product_id}', 'ProductController@edit_product')->name('edit_product');
+Route::post('/backend/update-product/{product_id}', 'ProductController@update_product')->name('update_product');
+Route::get('/backend/delete-product/{product_id}', 'ProductController@delete_product')->name('delete_product');

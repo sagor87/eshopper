@@ -4,7 +4,7 @@ use App\Product;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Brand;
-use App\ProductImage;
+//use App\ProductImage;
 use Image;
 use DB;
 
@@ -94,9 +94,13 @@ class ProductController extends Controller {
     public function all_product(Product $product) {
 
         $products=Product::get();
-        //$phone = User::find(1)->phone;
-        return view('admin.pages.all_product')->with('products', $products);;
+
+
+        return view('admin.pages.all_product',compact('products'));
     }
+
+
+
 
     /**
      * Show the form for editing the specified resource.
@@ -104,8 +108,14 @@ class ProductController extends Controller {
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product) {
-        //
+    public function edit_product(Product $product ,$product_id) {
+        $categorys=Category::get()->where('publication_status', 1);
+        $brands=Brand::get()->where('publication_status', 1);
+
+        $products= DB::table('products')
+        ->where('product_id',$product_id)
+        ->first();
+        return view('admin.pages.edit_product',compact('products','$product_id','categorys', 'brands'));
     }
 
     /**
@@ -115,9 +125,43 @@ class ProductController extends Controller {
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product) {
-        //
+    public function update_product(Request $request,  $product_id) {
+
+        $this->validate($request, [
+            'product_name'=> 'required',
+            'category_id'=> 'required',
+            'brand_id'=> 'required',
+            'product_short_description'=> 'required',
+            'product_long_description'=> 'required',
+            'product_price'=> 'required|numeric',
+            //'product_image'=> 'required',
+            'product_size'=> 'required',
+            'product_color'=> 'required'
+
+            ]);
+
+            $product = array();
+            $product['product_name']=$request->product_name;
+            $product['category_id']=$request->category_id;
+            $product['brand_id']=$request->brand_id;
+            $product['product_short_description']=$request->product_short_description;
+            $product['product_long_description']=$request->product_long_description;
+            $product['product_price']=$request->product_price;
+            $product['product_size']=$request->product_size;
+            $product['product_color']=$request->product_color;
+
+
+            DB::table('products')
+            ->where('product_id',$product_id)
+            ->update($product);
+
+            return redirect(route('all.product'))->with('successMsg', 'Product successfully update');
+
+
     }
+
+
+
 
 
     public function delete_product($product_id){

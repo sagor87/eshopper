@@ -8,7 +8,7 @@
                         <a href="index.html">Home</a>
                         <i class="icon-angle-right"></i>
                     </li>
-                    <li><a href="#">All Category</a></li>
+                    <li><a href="#">All Slider</a></li>
                 </ul>
 
                 @if (session('successMsg'))
@@ -34,47 +34,24 @@
                             <table class="table table-striped table-bordered bootstrap-datatable datatable">
                               <thead>
                                   <tr>
-                                      <th>product ID</th>
-                                      <th>product Name</th>
-                                      <th>product Description</th>
-                                      <th>product Image</th>
-                                      <th>product Price</th>
-                                      <th>Category Name</th>
-                                      <th>Brand Name</th>
-
+                                      <th>Slider ID</th>
+                                      <th>Slider Name</th>
+                                      <th>Slider Description</th>
+                                      <th>Image</th>
                                       <th>Status</th>
                                       <th>Actions</th>
                                   </tr>
                               </thead>
-                            @foreach($products as $product)
+                            @foreach($sliders as $slider)
                               <tbody>
                                 <tr>
-                                <td>{{$product->product_id}}</td>
-                                <td class="center">{{$product->product_name}}</td>
-                                <td class="center">{{$product->product_short_description}}</td>
+                                <td>{{$slider->id}}</td>
+                                <td class="center">{{$slider->slider_name}}</td>
+                                <td class="center">{{$slider->slider_description}}</td>
+                                <td> <img src="{{asset('image/slider/'.$slider->slider_image)}}" style="height: 200px; weight:200;"/></td>
 
-
-
-                                @php $i = 1; @endphp
-                                <td>
-                                @foreach($product->images as $image)
-                                @if ($i > 0)
-                                <img src="{{asset('image/'.$image->image)}}" alt="" style="height:80px; weight:80px;"/>
-
-                                @endif
-                                @php $i--; @endphp
-
-                                @endforeach
-                            </td>
-
-                                <td class="center">{{$product->product_price}}</td>
-
-                                <td class="center">{{$product->category->category_name}}</td>
-
-                                <td class="center">{{$product->brand->brand_name}}</td>
-
-                                <td class="center">
-                                        @if($product->publication_status==1)
+                                    <td class="center">
+                                        @if($slider->publication_status==1)
                                             <span class="label label-success">Active</span>
                                         @else
                                             <span class="label label-danger">Inactive</span>
@@ -82,23 +59,20 @@
                                     </td>
                                     <td class="center">
 
-                                    @if($product->publication_status==1)
-                                    <a class="btn btn-danger" href="{{route('inactive_product',$product->product_id)}}">
+                                    @if($slider->publication_status==1)
+                                    <a class="btn btn-danger" href="{{route('inactive_slider',$slider->id)}}">
                                             <i class="halflings-icon white thumbs-down"></i>
                                         </a>
                                     @else
-                                        <a class="btn btn-success" href="{{route('active_product',$product->product_id)}}">
+                                        <a class="btn btn-success" href="{{route('active_slider', $slider->id)}}">
                                             <i class="halflings-icon white thumbs-up"></i>
                                         </a>
                                     @endif
 
-                                        <a class="btn btn-info" href="{{route('edit_product',$product->product_id)}}">
-                                            <i class="halflings-icon white edit"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="{{route('delete_product',$product->product_id)}}" id="delete">
+
+                                        <a class="btn btn-danger" href="{{route('delete_slider',$slider->id)}}" id="delete">
                                             <i class="halflings-icon white trash"></i>
                                         </a>
-
                                     </td>
                                 </tr>
 

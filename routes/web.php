@@ -57,3 +57,13 @@ Route::get('/backend/active-product/{product_id}', 'ProductController@active_pro
 Route::get('/backend/edit-product/{product_id}', 'ProductController@edit_product')->name('edit_product');
 Route::post('/backend/update-product/{product_id}', 'ProductController@update_product')->name('update_product');
 Route::get('/backend/delete-product/{product_id}', 'ProductController@delete_product')->name('delete_product');
+
+
+//Slider route--------------------------------------------------------------------------------
+Route::get('/backend/add-slider', 'SliderController@index')->name('add.slider');
+Route::post('/backend/add-slider', 'SliderController@store')->name('add.slider');
+Route::get('/backend/all-slider', 'SliderController@all_slider')->name('all.slider');
+Route::get('/backend/inactive-slider/{id}', 'SliderController@inactive_slider')->name('inactive_slider');
+Route::get('/backend/active-slider/{id}', 'SliderController@active_slider')->name('active_slider');
+
+Route::get('/backend/delete-slider/{id}', 'SliderController@delete_slider')->name('delete_slider');

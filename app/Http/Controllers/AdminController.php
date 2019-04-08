@@ -106,6 +106,6 @@ class AdminController extends Controller
     public function destroy(admin $admin)
     {
         session::flush();
-        return redirect(route('admin.login'))->with('successMsg', 'Logout successfully');;
+        return redirect(route('admin.login'))->with('successMsg', 'Logout successfully');
     }
 }

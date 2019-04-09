@@ -26,10 +26,11 @@
                                 </div>
                             </div>
                         </div>
-                        @foreach($categorys as $category)
+                  {{--  $categorys=App\Category::get()->where('publication_status',1); --}}
+                        @foreach(App\Category::where('publication_status',1)->get() as $category)
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><a href="#">{{$category->category_name}}</a></h4>
+                                <h4 class="panel-title"><a href="{{route('product_by_category', $category->category_id)}}">{{$category->category_name}}</a></h4>
                                 </div>
                             </div>
                         @endforeach
@@ -40,8 +41,12 @@
                         <h2>Brands</h2>
                         <div class="brands-name">
                             <ul class="nav nav-pills nav-stacked">
+
+                    @php $brands = App\Brand::get()->where('publication_status',1);  @endphp
                             @foreach($brands as $brand)
-                                <li><a href="#"> <span class="pull-right">(50)</span>{{$brand->brand_name}}</a></li>
+
+
+                            <li><a href="{{route('product_by_brand', $brand->brand_id)}}"> <span class="pull-right">(50)</span>{{$brand->brand_name}}</a></li>
                             @endforeach
                             </ul>
                         </div>
@@ -56,7 +61,7 @@
                     </div><!--/price-range-->
 
                     <div class="shipping text-center"><!--shipping-->
-                        <img src="images/home/shipping.jpg" alt="" />
+                        <img src="{{asset('images/home/shipping.jpg')}}" alt="" />
                     </div><!--/shipping-->
 
                 </div>

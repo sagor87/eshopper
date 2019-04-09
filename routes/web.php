@@ -12,6 +12,8 @@
 */
 //Frontend Routes-----------------------------------------------------------------------------
 Route::get('/', 'PagesController@index')->name('home');
+Route::get('/product_by_category/{category_id}', 'PagesController@show_product_by_category')->name('product_by_category');
+Route::get('/product_by_brand/{brand_id}', 'PagesController@show_product_by_brand')->name('product_by_brand');
 
 
 

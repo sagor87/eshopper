@@ -13,6 +13,7 @@
                     <div class="carousel-inner">
 
                     @php $i = 1; @endphp
+        @php $sliders = App\Slider::get()->where('publication_status',1);@endphp
                         @foreach($sliders as $slider)
                         <div class="item {{$i == 1 ? 'active':''}}">
 

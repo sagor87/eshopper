@@ -4,7 +4,7 @@ use App\Product;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Brand;
-//use App\ProductImage;
+use App\ProductImage;
 use Image;
 use DB;
 

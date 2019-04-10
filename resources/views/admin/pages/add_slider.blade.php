@@ -50,7 +50,7 @@
                     <div class="control-group">
                       <label class="control-label" for="typeahead">Slider Description </label>
                       <div class="controls">
-                        <input type="text" class="span6 typeahead" name="slider_description">
+                            <textarea class="cleditor" name="slider_description" rows="3"></textarea>
                       </div>
                     </div>
 

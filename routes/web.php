@@ -14,6 +14,8 @@
 Route::get('/', 'PagesController@index')->name('home');
 Route::get('/product_by_category/{category_id}', 'PagesController@show_product_by_category')->name('product_by_category');
 Route::get('/product_by_brand/{brand_id}', 'PagesController@show_product_by_brand')->name('product_by_brand');
+Route::get('/product_view/{product_id}', 'PagesController@product_view')->name('product.view');
+Route::post('/add_to_cart/{product_id}', 'CartController@add_cart')->name('add.cart');
 
 
 

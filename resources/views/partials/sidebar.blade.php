@@ -45,8 +45,10 @@
                     @php $brands = App\Brand::get()->where('publication_status',1);  @endphp
                             @foreach($brands as $brand)
 
+                   @php $allproducts = count(App\Product::get()->where('brand_id', $brand->brand_id)->where('publication_status',1));@endphp
 
-                            <li><a href="{{route('product_by_brand', $brand->brand_id)}}"> <span class="pull-right">(50)</span>{{$brand->brand_name}}</a></li>
+
+                            <li><a href="{{route('product_by_brand', $brand->brand_id)}}"> <span class="pull-right">({{$allproducts}})</span>{{$brand->brand_name}}</a></li>
                             @endforeach
                             </ul>
                         </div>

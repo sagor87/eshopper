@@ -15,9 +15,24 @@ Route::get('/', 'PagesController@index')->name('home');
 Route::get('/product_by_category/{category_id}', 'PagesController@show_product_by_category')->name('product_by_category');
 Route::get('/product_by_brand/{brand_id}', 'PagesController@show_product_by_brand')->name('product_by_brand');
 Route::get('/product_view/{product_id}', 'PagesController@product_view')->name('product.view');
-Route::post('/add_to_cart/{product_id}', 'CartController@add_cart')->name('add.cart');
+
+//Cart Related Route--------------------------------------------------------------------------
+
+Route::post('/show_cart', 'CartController@add_cart')->name('add.cart');
+Route::get('/show_cart', 'CartController@show_cart')->name('show.cart');
+Route::get('/delete_cart_row/{rowId}', 'CartController@delete_cart_row')->name('delete_cart_row');
+Route::post('/update_cart_row', 'CartController@update_cart_row')->name('update_cart_row');
 
 
+//Checkout releted Route--------------------------------------------------
+Route::get('/login_check', 'checkoutController@login_check')->name('login_check');
+Route::get('/checkout', 'checkoutController@checkout')->name('checkout');
+
+
+//customer Releted Route------------------------------------------------------------------
+Route::post('/customer_registration', 'CustomerController@customer_registration')->name('customer_registration');
+Route::get('/logout', 'CustomerController@destroy')->name('customer.logout');
+Route::post('/login', 'CustomerController@index')->name('customer.login');
 
 
 //Admin Routes-----------------------------------------------------------------------------

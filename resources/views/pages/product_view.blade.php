@@ -72,7 +72,7 @@
             <img src="images/product-details/rating.png" alt="" />
             <span>
                 <span>{{$product->product_price}} TK</span>
-                <form action="{{route('add.cart',$product->product_id)}}" method="post">
+                <form action="{{route('show.cart')}}" method="post">
                     {{ csrf_field() }}
                     <label>Quantity:</label>
                     <input type="text" name="qty" value="1" />

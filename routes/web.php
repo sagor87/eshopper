@@ -27,6 +27,8 @@ Route::post('/update_cart_row', 'CartController@update_cart_row')->name('update_
 //Checkout releted Route--------------------------------------------------
 Route::get('/login_check', 'checkoutController@login_check')->name('login_check');
 Route::get('/checkout', 'checkoutController@checkout')->name('checkout');
+Route::post('/confirm_shipping', 'shippingController@confirm_shipping')->name('confirm_shipping');
+Route::get('/payment', 'shippingController@payment')->name('payment');
 
 
 //customer Releted Route------------------------------------------------------------------

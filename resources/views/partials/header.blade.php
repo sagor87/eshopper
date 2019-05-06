@@ -101,7 +101,11 @@
 
 								
 								@if ($customer_id!=NULL)
-									<li><a href="{{route('customer.logout')}}"><i class="fa fa-lock"></i> Logout</a></li>
+									
+									
+									<li><a href="{{route('customer.logout')}}"><i class="fa fa-user"></i>
+									<i class="halflings-icon white user"></i> {{ Session::get('customer_name')}}
+									| Logout</a></li>
 								@else
 									<li><a href="{{route('login_check')}}"><i class="fa fa-lock"></i> Login</a></li>
 								@endif

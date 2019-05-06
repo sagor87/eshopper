@@ -2,7 +2,7 @@
 @include('partials.header')
 @include('partials.success_message')
 <div class="register-req col-sm-10 col-sm-offset-1">
-				<p>Please use Register And Checkout to easily get access to your order history, or use Checkout as Guest</p>
+				<p>Please use Register And Checkout to easily get access to your order history, </p>
 			</div><!--/register-req-->
 
 			<div class="shopper-informations">
@@ -11,8 +11,11 @@
 					<div class="col-sm-10 clearfix col-sm-offset-3">
 						<div class="bill-to">
 							<p>Bill To</p>
+							
 							<div class="form-one">
-								<form>
+							@include('partials.message')
+								<form action="{{route('confirm_shipping')}}" method="post">
+								@csrf
 									
 									<input type="text" name="shipping_email" placeholder="Email *">
 									<input type="text" name="shipping_first_name" placeholder="First Name *">
